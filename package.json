@@ -1,0 +1,26 @@
+{
+    "name": "github-reminder",
+    "version": "1.0.0",
+    "description": "A browser extension that reminds you to make a GitHub commit every day.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "pretty": "npx prettier --write ."
+    },
+    "keywords": [
+        "github"
+    ],
+    "author": {
+        "name": "battleoverflow",
+        "url": "https://github.com/battleoverflow"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/battleoverflow/github-reminder"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/chrome": "^0.0.270",
+        "typescript": "^5.5.4"
+    }
+}
