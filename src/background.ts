@@ -1,5 +1,5 @@
 
-const CHECK_INTERVAL = 3600 * 1000 // 3600 seconds
+const CHECK_INTERVAL = 86400 * 1000 // 86400 seconds / 1 day / 24 hours
 
 // Access the GitHub username stored in Google Chrome local storage
 async function getGitHubUsername(): Promise<string | null> {
@@ -19,6 +19,7 @@ async function getGitHubToken(): Promise<string | null> {
     })
 }
 
+// Fetch repositories using the GitHub API
 async function fetchRepositories(username: string, token: string): Promise<any[]> {
     const response = await fetch(`https://api.github.com/users/${username}/repos`, {
         headers: {
@@ -35,6 +36,7 @@ async function fetchRepositories(username: string, token: string): Promise<any[]
     return await response.json()
 }
 
+// Check if any commits have been made within the past 24 hours
 async function checkCommitsInRepo(repo: any, token: string): Promise<boolean> {
     const today = new Date().toISOString().split("T")[0]
     const sinceDate = new Date(today)
@@ -61,6 +63,7 @@ async function checkCommitsInRepo(repo: any, token: string): Promise<boolean> {
     return commits.length > 0
 }
 
+// Validate that the GitHub username and PAT are present from the user
 async function validGitHubData(): Promise<boolean> {
     const githubUsername = await getGitHubUsername()
     const githubToken = await getGitHubToken()
@@ -72,6 +75,7 @@ async function validGitHubData(): Promise<boolean> {
     return false
 }
 
+// Missing a username from the user
 const notifyMissingUsername = () => {
     chrome.notifications.create({
         type: "basic",
@@ -82,6 +86,7 @@ const notifyMissingUsername = () => {
     })
 }
 
+// Missing a GitHub token from the user
 const notifyMissingToken = () => {
     chrome.notifications.create({
         type: "basic",
@@ -92,6 +97,7 @@ const notifyMissingToken = () => {
     })
 }
 
+// Iterate over all provided commits to verify no commits are present for the day
 async function checkForCommitsToday(): Promise<boolean> {
     const githubUsername = await getGitHubUsername()
     const githubToken = await getGitHubToken()
@@ -119,11 +125,14 @@ async function checkForCommitsToday(): Promise<boolean> {
     return false
 }
 
+// How often to check for new commits
+// In this case, we are doing 86400 seconds or 1 day
 chrome.alarms.create("checkCommits", {
     // Convert milliseconds to minutes
     periodInMinutes: CHECK_INTERVAL / (60 * 1000)
 })
 
+// Now we notify the user if a commit has been made or not
 chrome.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name === "checkCommits") {
         const hasCommits = await checkForCommitsToday()

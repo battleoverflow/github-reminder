@@ -18,7 +18,7 @@
         "type": "git",
         "url": "https://github.com/battleoverflow/github-reminder"
     },
-    "license": "MIT",
+    "license": "BSD-2-Clause",
     "devDependencies": {
         "@types/chrome": "^0.0.270",
         "typescript": "^5.5.4"

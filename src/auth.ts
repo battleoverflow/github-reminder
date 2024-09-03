@@ -1,3 +1,7 @@
+/*
+    We control the button here for the username and token info
+    We also access the user data here as well and set everything in Google Chrome's local storage
+*/
 
 document.getElementById("saveUsername")?.addEventListener("click", () => {
     const username = (document.getElementById("username") as HTMLInputElement).value
