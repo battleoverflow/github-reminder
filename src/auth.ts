@@ -5,28 +5,30 @@
 
 document.getElementById("saveUsername")?.addEventListener("click", () => {
     const username = (document.getElementById("username") as HTMLInputElement).value
+    const usernameDoc = document.getElementById("usernameStatus")
 
     if (username) {
         chrome.storage.local.set({ githubUsername: username }, () => {
-            document.getElementById("usernameStatus")!.textContent = "Username saved successfully"
-            document.getElementById("usernameStatus")!.style.color = "green"
+            usernameDoc!.textContent = "Username saved successfully"
+            usernameDoc!.style.color = "green"
         })
     } else {
-        document.getElementById("usernameStatus")!.textContent = "Please enter your GitHub username"
-        document.getElementById("usernameStatus")!.style.color = "red"
+        usernameDoc!.textContent = "Please enter your GitHub username"
+        usernameDoc!.style.color = "red"
     }
 })
 
 document.getElementById("saveToken")?.addEventListener("click", () => {
     const token = (document.getElementById("token") as HTMLInputElement).value
+    const tokenDoc = document.getElementById("tokenStatus")
 
     if (token) {
         chrome.storage.local.set({ githubToken: token }, () => {
-            document.getElementById("tokenStatus")!.textContent = "Token saved successfully"
-            document.getElementById("tokenStatus")!.style.color = "green"
+            tokenDoc!.textContent = "Token saved successfully"
+            tokenDoc!.style.color = "green"
         })
     } else {
-        document.getElementById("tokenStatus")!.textContent = "Please enter your GitHub token"
-        document.getElementById("tokenStatus")!.style.color = "red"
+        tokenDoc!.textContent = "Please enter your GitHub token"
+        tokenDoc!.style.color = "red"
     }
 })

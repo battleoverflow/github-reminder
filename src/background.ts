@@ -1,5 +1,4 @@
-
-const CHECK_INTERVAL = 86400 * 1000 // 86400 seconds / 1 day / 24 hours
+const CHECK_INTERVAL = 43200 * 1000 // 43200 seconds / 12 hours
 
 // Access the GitHub username stored in Google Chrome local storage
 async function getGitHubUsername(): Promise<string | null> {
@@ -20,13 +19,19 @@ async function getGitHubToken(): Promise<string | null> {
 }
 
 // Fetch repositories using the GitHub API
-async function fetchRepositories(username: string, token: string): Promise<any[]> {
-    const response = await fetch(`https://api.github.com/users/${username}/repos`, {
-        headers: {
-            Authorization: `token ${token}`,
-            Accept: "application/vnd.github.v3+json"
+async function fetchRepositories(
+    username: string,
+    token: string
+): Promise<any[]> {
+    const response = await fetch(
+        `https://api.github.com/users/${username}/repos`,
+        {
+            headers: {
+                Authorization: `token ${token}`,
+                Accept: "application/vnd.github.v3+json"
+            }
         }
-    })
+    )
 
     if (!response.ok) {
         console.error("Failed to fetch repositories:", response.statusText)
@@ -148,7 +153,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
                     priority: 2
                 })
             }
-    
+
             if (!hasCommits) {
                 chrome.notifications.create({
                     type: "basic",
