@@ -1,4 +1,7 @@
-# GitHub Reminder
+<div align="center">
+    <img src="dist/icons/icon.png" width="30%" />
+    <h1>GitHub Commit Reminder</h1>
+</div>
 
 A browser extension that reminds you to make a GitHub commit every day.
 
