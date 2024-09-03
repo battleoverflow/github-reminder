@@ -84,7 +84,7 @@ async function validGitHubData(): Promise<boolean> {
 const notifyMissingUsername = () => {
     chrome.notifications.create({
         type: "basic",
-        iconUrl: "icon.png",
+        iconUrl: "icons/icon.png",
         title: "Missing Username",
         message: "No GitHub username set",
         priority: 2
@@ -95,7 +95,7 @@ const notifyMissingUsername = () => {
 const notifyMissingToken = () => {
     chrome.notifications.create({
         type: "basic",
-        iconUrl: "icon.png",
+        iconUrl: "icons/icon.png",
         title: "Missing GitHub Token",
         message: "No GitHub token set",
         priority: 2
@@ -147,7 +147,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
             if (hasCommits) {
                 chrome.notifications.create({
                     type: "basic",
-                    iconUrl: "icon.png",
+                    iconUrl: "icons/icon.png",
                     title: "GitHub Commit Reminder",
                     message: "GitHub commit detected! Awesome job!! :D",
                     priority: 2
@@ -157,7 +157,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
             if (!hasCommits) {
                 chrome.notifications.create({
                     type: "basic",
-                    iconUrl: "icon.png",
+                    iconUrl: "icons/icon.png",
                     title: "GitHub Commit Reminder",
                     message: "No GitHub commits detected! Make sure to commit! :)",
                     priority: 2
