@@ -1,8 +1,14 @@
 {
     "manifest_version": 3,
     "name": "GitHub Commit Reminder",
+    "short_name": "Git Reminder",
     "version": "1.0.0",
     "description": "A browser extension that reminds you to make a GitHub commit every day.",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
     "permissions": ["storage", "alarms", "notifications"],
     "background": {
         "service_worker": "background.js"
