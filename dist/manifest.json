@@ -21,6 +21,5 @@
             "resources": ["index.html"],
             "matches": ["<all_urls>"]
         }
-    ],
-    "host_permissions": ["https://api.github.com/"]
+    ]
 }
