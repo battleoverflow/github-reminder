@@ -7,7 +7,7 @@
             body {
                 font-family: Arial, sans-serif;
                 width: 450px;
-                height: 600px;
+                height: 500px;
                 margin: 0;
                 padding: 20px;
                 box-sizing: border-box;
@@ -50,51 +50,34 @@
                 background-color: #dc3a3a;
             }
 
-            #tokenStatus {
-                margin-top: 10px;
-                font-size: 14px;
-                color: white;
+            .aboutLinks {
+                color: #dc4242;
+                text-decoration: none;
             }
-
-            #usernameStatus {
-                margin-top: 10px;
-                font-size: 14px;
-                color: white;
-            }
-
-            /* .aboutBtn {
-                margin-top: 10px;
-                background-color: #181818;
-                color: white;
-                transition: ease-in-out;
-            } */
         </style>
     </head>
 
     <body>
-
         <div align="center">
             <img src="icons/icon.png" width="25%" />
         </div>
 
-        <h1>GitHub Configuration</h1>
+        <p>A browser extension that reminds you to make a GitHub commit every day.</p>
 
-        <p>GitHub Username:</p>
-        <input
-            type="text"
-            id="username"
-            placeholder="Enter your GitHub username"
-        />
-        <button id="saveUsername">Save Username</button>
-        <div id="usernameStatus"></div>
+        <h2>
+            Author: BattleOverflow (<a href="https://github.com/battleoverflow" class="aboutLinks">GitHub Profile</a>)
+        </h2>
 
-        <p>GitHub Personal Access Token (PAT):</p>
-        <input type="text" id="token" placeholder="Enter your GitHub token" />
-        <button id="saveToken">Save Token</button>
-        <div id="tokenStatus"></div>
+        <h2>
+            GitHub Link: <a href="https://github.com/battleoverflow/github-reminder" class="aboutLinks">Repository</a>
+        </h2>
 
-        <a href="about.html" style="text-decoration: none;">
-            <button style="margin-top: 50px;">About</button>
+        <p>
+            Current Build: v1.0.1
+        </p>
+
+        <a href="index.html" style="text-decoration: none;">
+            <button style="margin-top: 50px;">Go Back</button>
         </a>
     </body>
 </html>
